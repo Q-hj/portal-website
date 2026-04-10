@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import WebsiteCard from '@/components/WebsiteCard/index.vue';
-import { useTheme } from '@/composables/useTheme';
-import type { Category, ThemeType } from '@/types';
+import ThemeSwitcher from '@/components/ThemeSwitcher/index.vue';
+import type { Category } from '@/types';
 import { computed, ref } from 'vue';
 import websiteData from '@/data/websites.json';
 
@@ -15,16 +15,6 @@ const categories = ref<Category[]>(websiteData.categories);
 
 /** 当前选中的分类ID */
 const activeCategory = ref<string>(categories.value[0]?.id || '');
-
-/** 主题管理 */
-const { themeSetting, setTheme, isDark } = useTheme();
-
-/** 主题选项 */
-const themeOptions: { value: ThemeType; label: string; icon: string }[] = [
-  { value: 'light', label: '亮色', icon: 'icon-sun' },
-  { value: 'dark', label: '暗色', icon: 'icon-moon' },
-  { value: 'system', label: '跟随系统', icon: 'icon-desktop' },
-];
 
 /**
  * 切换分类
@@ -47,21 +37,7 @@ const currentWebsites = computed(() => {
     <header class="header">
       <div class="header-content">
         <h1 class="site-title">网站导航</h1>
-        <div class="theme-switcher">
-          <a-button-group>
-            <a-button
-              v-for="option in themeOptions"
-              :key="option.value"
-              :type="themeSetting === option.value ? 'primary' : 'secondary'"
-              @click="setTheme(option.value)"
-            >
-              <template #icon>
-                <icon-font :type="option.icon" />
-              </template>
-              {{ option.label }}
-            </a-button>
-          </a-button-group>
-        </div>
+        <ThemeSwitcher />
       </div>
     </header>
 
@@ -150,12 +126,7 @@ const currentWebsites = computed(() => {
   background-clip: text;
 }
 
-.theme-switcher {
-  display: flex;
-  gap: 8px;
-}
-
-/* 主体内容 */
+/** 主体内容 */
 .main-content {
   flex: 1;
   max-width: 1400px;

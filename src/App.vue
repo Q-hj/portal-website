@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import Portal from '@/views/Portal/index.vue';
+/**
+ * 应用入口组件
+ * 使用路由管理页面切换
+ */
 </script>
 
 <template>
-  <Portal />
+  <RouterView />
 </template>
 
 <style>

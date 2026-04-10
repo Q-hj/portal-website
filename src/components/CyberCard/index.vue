@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Website } from '@/types';
+import type { Website } from "@/types";
 
 /**
  * 赛博朋克风格网站卡片组件
@@ -11,7 +11,7 @@ const props = defineProps<{
 
 /** 打开网站 */
 const openWebsite = (url: string) => {
-  window.open(url, '_blank', 'noopener,noreferrer');
+  window.open(url, "_blank", "noopener,noreferrer");
 };
 </script>
 
@@ -24,13 +24,7 @@ const openWebsite = (url: string) => {
       <div class="card-corner corner-bl"></div>
       <div class="card-corner corner-br"></div>
 
-      <div class="card-icon">
-        <img
-          :src="props.website.icon"
-          :alt="props.website.name"
-          @error="(e) => ((e.target as HTMLImageElement).src = '/default-icon.svg')"
-        />
-      </div>
+      <div class="card-icon">{{ props.website.icon || "🌐" }}</div>
 
       <div class="card-info">
         <h3 class="card-name">{{ props.website.name }}</h3>
@@ -125,8 +119,13 @@ const openWebsite = (url: string) => {
 }
 
 @keyframes cornerPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 /* 图标 */
@@ -188,7 +187,12 @@ const openWebsite = (url: string) => {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.8), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 255, 0.8),
+    transparent
+  );
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -199,8 +203,12 @@ const openWebsite = (url: string) => {
 }
 
 @keyframes glowSlide {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(100%); }
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
 }
 
 /* 响应式 */

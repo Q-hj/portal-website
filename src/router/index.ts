@@ -1,22 +1,22 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import type { RouteRecordRaw } from 'vue-router';
+import type { RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 
 /** 路由配置 */
 const routes: RouteRecordRaw[] = [
   {
-    path: '/',
-    name: 'Home',
-    component: () => import('@/views/Home/index.vue'),
+    path: "/",
+    name: "Home",
+    component: () => import("@/views/Home/index.vue"),
     meta: {
-      title: '首页',
+      title: "首页",
     },
   },
   {
-    path: '/projects',
-    name: 'Projects',
-    component: () => import('@/views/Projects/index.vue'),
+    path: "/projects",
+    name: "Projects",
+    component: () => import("@/views/Projects/index.vue"),
     meta: {
-      title: '个人项目',
+      title: "个人项目",
     },
   },
 ];

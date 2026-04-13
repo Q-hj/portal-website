@@ -7,7 +7,8 @@
       "Bash(pnpm add:*)",
       "Bash(pnpm type-check:*)",
       "Bash(pnpm dev:*)",
-      "Bash(python test_pages.py)"
+      "Bash(python test_pages.py)",
+      "Bash(pnpm build:*)"
     ]
   }
 }

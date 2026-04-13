@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import ThemeSwitcher from '@/components/ThemeSwitcher/index.vue';
-import { useRouter } from 'vue-router';
-import { ref, onMounted, onUnmounted } from 'vue';
+import ThemeSwitcher from "@/components/ThemeSwitcher/index.vue";
+import { onMounted, onUnmounted, ref } from "vue";
+import { useRouter } from "vue-router";
 
 /**
  * 首页组件
@@ -11,8 +11,8 @@ import { ref, onMounted, onUnmounted } from 'vue';
 const router = useRouter();
 
 /** 打字机文字 */
-const typedText = ref('');
-const fullText = 'MY WORLD';
+const typedText = ref("");
+const fullText = "MY WORLD";
 const typingComplete = ref(false);
 
 /** 鼠标位置 */
@@ -21,7 +21,7 @@ const mouseY = ref(0);
 
 /** 进入个人项目页 */
 const goToProjects = () => {
-  router.push('/projects');
+  router.push("/projects");
 };
 
 /** 打字机动画 */
@@ -46,11 +46,11 @@ const handleMouseMove = (e: MouseEvent) => {
 
 onMounted(() => {
   startTyping();
-  window.addEventListener('mousemove', handleMouseMove);
+  window.addEventListener("mousemove", handleMouseMove);
 });
 
 onUnmounted(() => {
-  window.removeEventListener('mousemove', handleMouseMove);
+  window.removeEventListener("mousemove", handleMouseMove);
 });
 </script>
 
@@ -127,7 +127,7 @@ onUnmounted(() => {
 
 <style scoped>
 .home-container {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   background: #0a0a0f;
@@ -149,7 +149,11 @@ onUnmounted(() => {
   position: fixed;
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(0, 255, 255, 0.15) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 255, 0.15) 0%,
+    transparent 70%
+  );
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
@@ -173,33 +177,61 @@ onUnmounted(() => {
 
 .stars-sm {
   background-image:
-    radial-gradient(1px 1px at 10px 10px, rgba(255,255,255,0.8), transparent),
-    radial-gradient(1px 1px at 150px 150px, rgba(255,255,255,0.6), transparent),
-    radial-gradient(1px 1px at 300px 80px, rgba(255,255,255,0.7), transparent);
+    radial-gradient(
+      1px 1px at 10px 10px,
+      rgba(255, 255, 255, 0.8),
+      transparent
+    ),
+    radial-gradient(
+      1px 1px at 150px 150px,
+      rgba(255, 255, 255, 0.6),
+      transparent
+    ),
+    radial-gradient(
+      1px 1px at 300px 80px,
+      rgba(255, 255, 255, 0.7),
+      transparent
+    );
   background-size: 350px 350px;
   animation: drift 60s linear infinite;
 }
 
 .stars-md {
   background-image:
-    radial-gradient(2px 2px at 50px 50px, rgba(255,255,255,0.9), transparent),
-    radial-gradient(2px 2px at 200px 200px, rgba(0,255,255,0.8), transparent),
-    radial-gradient(2px 2px at 400px 120px, rgba(255,0,255,0.7), transparent);
+    radial-gradient(
+      2px 2px at 50px 50px,
+      rgba(255, 255, 255, 0.9),
+      transparent
+    ),
+    radial-gradient(
+      2px 2px at 200px 200px,
+      rgba(0, 255, 255, 0.8),
+      transparent
+    ),
+    radial-gradient(2px 2px at 400px 120px, rgba(255, 0, 255, 0.7), transparent);
   background-size: 500px 500px;
   animation: drift 80s linear infinite reverse;
 }
 
 .stars-lg {
   background-image:
-    radial-gradient(3px 3px at 100px 100px, rgba(255,255,255,1), transparent),
-    radial-gradient(3px 3px at 250px 250px, rgba(0,255,255,0.9), transparent);
+    radial-gradient(
+      3px 3px at 100px 100px,
+      rgba(255, 255, 255, 1),
+      transparent
+    ),
+    radial-gradient(3px 3px at 250px 250px, rgba(0, 255, 255, 0.9), transparent);
   background-size: 600px 600px;
   animation: drift 100s linear infinite;
 }
 
 @keyframes drift {
-  from { transform: translateY(0); }
-  to { transform: translateY(-600px); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-600px);
+  }
 }
 
 /* 霓虹网格地面 */
@@ -209,7 +241,11 @@ onUnmounted(() => {
   left: 0;
   right: 0;
   height: 40%;
-  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
   perspective: 500px;
   overflow: hidden;
 }
@@ -229,8 +265,12 @@ onUnmounted(() => {
 }
 
 @keyframes gridMove {
-  from { background-position: 0 0; }
-  to { background-position: 0 50px; }
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 50px;
+  }
 }
 
 /* 流动几何图形 */
@@ -295,7 +335,8 @@ onUnmounted(() => {
 }
 
 @keyframes floatRotate {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
   }
   25% {
@@ -385,8 +426,14 @@ onUnmounted(() => {
 }
 
 @keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
 /* 副标题 */
@@ -451,15 +498,24 @@ onUnmounted(() => {
 .btn-glow {
   position: absolute;
   inset: -2px;
-  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.4), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 255, 0.4),
+    transparent
+  );
   opacity: 0;
   animation: btnGlow 2s linear infinite;
   transition: opacity 0.3s;
 }
 
 @keyframes btnGlow {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(100%); }
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
 }
 
 /* 扫描线 */
@@ -519,15 +575,30 @@ onUnmounted(() => {
     height: 150px;
   }
 
-  .shape-1 { width: 40px; height: 40px; }
-  .shape-2 { width: 30px; height: 30px; }
-  .shape-3 { width: 50px; height: 50px; }
-  .shape-4 { width: 20px; height: 20px; }
-  .shape-5 { width: 25px; height: 25px; }
+  .shape-1 {
+    width: 40px;
+    height: 40px;
+  }
+  .shape-2 {
+    width: 30px;
+    height: 30px;
+  }
+  .shape-3 {
+    width: 50px;
+    height: 50px;
+  }
+  .shape-4 {
+    width: 20px;
+    height: 20px;
+  }
+  .shape-5 {
+    width: 25px;
+    height: 25px;
+  }
 }
 
 /* 暗色主题下的额外效果 */
-[data-theme='dark'] .home-container {
+[data-theme="dark"] .home-container {
   /* 已经是深色风格，保持不变 */
 }
 </style>

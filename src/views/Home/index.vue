@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import ThemeSwitcher from "@/components/ThemeSwitcher/index.vue";
 import { onMounted, onUnmounted, ref } from "vue";
 import { useRouter } from "vue-router";
 
@@ -57,9 +56,9 @@ onUnmounted(() => {
 <template>
   <div class="home-container">
     <!-- 顶部导航 -->
-    <header class="header">
+    <!-- <header class="header">
       <ThemeSwitcher />
-    </header>
+    </header> -->
 
     <!-- Banner 区域 -->
     <section class="banner">

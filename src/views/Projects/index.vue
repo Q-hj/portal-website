@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import CyberCard from "@/components/CyberCard/index.vue";
-import ThemeSwitcher from "@/components/ThemeSwitcher/index.vue";
 import { personSite } from "@/data/person-site";
 import { onMounted, onUnmounted, ref } from "vue";
 import { useRouter } from "vue-router";
@@ -70,7 +69,7 @@ onUnmounted(() => {
           <icon-left />
           <span>返回首页</span>
         </button>
-        <ThemeSwitcher />
+        <!-- <ThemeSwitcher /> -->
       </div>
     </header>
 
